@@ -14,7 +14,7 @@ RUN sed -i 's/rights="none"/rights="read|write"/' /etc/ImageMagick-6/policy.xml 
 
 # Install Python dependencies
 RUN pip install --upgrade pip && \
-    pip install pdf2image pytesseract easyocr pillow opencv-python-headless fastapi uvicorn
+    pip install pdf2image pytesseract easyocr pillow opencv-python-headless fastapi uvicorn python-multipart
 
 # Create directories
 RUN mkdir -p /app/input /app/output
