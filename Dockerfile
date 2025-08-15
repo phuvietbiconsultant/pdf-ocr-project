@@ -14,7 +14,7 @@ RUN sed -i 's/rights="none"/rights="read|write"/' /etc/ImageMagick-6/policy.xml 
 
 # Install Python dependencies
 RUN pip install --upgrade pip && \
-    pip install pdf2image pytesseract easyocr pillow opencv-python-headless
+    pip install pdf2image pytesseract easyocr pillow opencv-python-headless fastapi uvicorn
 
 # Create directories
 RUN mkdir -p /app/input /app/output
@@ -25,4 +25,5 @@ COPY *.py /app/
 # Set working directory
 WORKDIR /app
 
-CMD ["/bin/bash"]
+# Start the FastAPI server
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
