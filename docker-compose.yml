@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  pdf-ocr:
+    image: pdf-ocr:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - D:/pdf-ocr-docker/input:/app/input
+      - D:/pdf-ocr-docker/output:/app/output
+    command: /bin/bash
+    stdin_open: true
+    tty: true
